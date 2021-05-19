@@ -3,10 +3,6 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 
-
-sleep_df <- read.csv("data/Time Americans Spend Sleeping.csv",
-                     stringsAsFactors = FALSE)
-
 get_trend_line_plot <- function(dataset) {
 
   plot <- ggplot(data = dataset) +
