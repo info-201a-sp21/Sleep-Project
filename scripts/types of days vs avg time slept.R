@@ -23,7 +23,7 @@ get_violin_plot <- function(dataset) {
     )
 
   plot_with_points <- plot +
-    geom_jitter(shape = 16, postion = position_jitter(0))
+    geom_jitter(shape = 16)
   return(plot_with_points)
 }
 
