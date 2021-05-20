@@ -59,9 +59,10 @@ get_summary_info <- function(dataset) {
   result$avg_phoneuser_sleep_hr <- round(avg_phoneuser_sleep_hr, 3)
   result$avg_non_phoneuser_sleep_hr <- round(avg_non_phoneuser_sleep_hr, 3)
 
-  result$avg_phoneuser_enough_rate <- round(avg_phoneuser_enough_rate, 3)
+  result$avg_phoneuser_enough_rate <- round(avg_phoneuser_enough_rate, 3) *
+    100
   result$avg_non_phoneuser_enough_rate <- round(
-    avg_non_phoneuser_enough_rate, 3)
+    avg_non_phoneuser_enough_rate, 3) * 100
 
 
   avg_breakfast_sleep_hr <- breakfast_info %>% pull(avg_sleep_hr)
@@ -75,9 +76,10 @@ get_summary_info <- function(dataset) {
   result$avg_breakfast_sleep_hr <- round(avg_breakfast_sleep_hr, 3)
   result$avg_non_breakfast_sleep_hr <- round(avg_non_breakfast_sleep_hr, 3)
 
-  result$avg_breakfast_enough_rate <- round(avg_breakfast_enough_rate, 3)
+  result$avg_breakfast_enough_rate <- round(avg_breakfast_enough_rate, 3) *
+    100
   result$avg_non_breakfast_enough_rate <- round(
-    avg_non_breakfast_enough_rate, 3)
+    avg_non_breakfast_enough_rate, 3) * 100
 
   result$breakfast_sleephr_ratio <- round(result$avg_breakfast_sleep_hr /
     result$avg_non_breakfast_sleep_hr, 2)
