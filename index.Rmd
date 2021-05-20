@@ -48,6 +48,19 @@ summary_info <- get_summary_info(sleep_study_df)
 
 ```
   
+  From the data by Michael Lomuscio who collected the data from students in international boarding school, our team founded that in average, students think that they get enough sleep when they slept `r summary_info[[1]]` hours. However, the average sleep hours for the phone-use group(the students who use phone within 30 minutes of falling asleep) was `r summary_info[[2]]`. For non-phone-use group(the students who do not use phone before falling asleep), the average sleep hours was `r summary_info[[3]]`. We could observethat both group do not reach to the ideal sleeping hours that students felt enough. With those two data points, we could also observe that the non-phone-use group had less sleeping hours than the phone-use group. However, 
+  
+  even though phone-use group slept more,
+  
+  their rate of agreeing with getting enough sleep was `r summary_info[[4]]`, while that of non-phone-use group was `r summary_info[[5]]`.
+  
+  
+  
+  the students who use phone within 30 minutes of falling asleep was `r summary_info[[2]]`, and for students who do not use phone before falling asleep was `r summary_info[[3]]`. We could observe that both group do not reach to the ideal sleep hours that students felt enough. With those two data poitns, we could also observe that the group who did not used phone had less sleeping hours that the group who used their phone. In contrast, even though the students who used their phone slept more, their rate of agreeing with getting enough sleep was `r summary_info[[4]]` while the non
+  
+  and who are not
+  
+  the average sleeping hours that people think
   `r summary_info[[1]]` something
 
 
