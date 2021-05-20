@@ -7,6 +7,20 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("scripts/aggregate_table.R")
+source("scripts/avg time slept pie chart.R")
+source("scripts/summary_info.R")
+source("scripts/trend of avg sleep hr in each age group.R")
+source("scripts/types of days vs avg time slept.R")
+library("knitr")
+
+american_time_use_survey_df <- read.csv("data/Time Americans Spend Sleeping.csv",
+                                        stringsAsFactors = FALSE)
+
+sleep_study_df <- read.csv("data/SleepStudyData.csv",
+                           stringsAsFactors = FALSE)
+
+
 ```
 
 ## R Markdown
@@ -14,11 +28,29 @@ knitr::opts_chunk$set(echo = TRUE)
 #When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r include=FALSE}
-source("analysis.R")
+# source("analysis.R")
 ```
-Our group is interested in this domain because sleep is a topic that is highly relevant for college students and emerging adults entering the workforce. Many people maintain busy lives but often forget to balance it with proper sleep and behaviors that benefit sleep health.
 
-The data in our dataset was collected by the American Time Use Survey from the Bureau of Labor Statistics by surveying a random sample of Americans ages 15 years and older. The participants were grouped by age group and sex. This data helps us analyze the differences in the amount of sleep Americans of different ages and sex get. With a focus on age and sex, we can better analyze the impact these variables have on the amount of sleep people get on average. 
+## Introduction
+
+  Our group is interested in this domain because sleep is a topic that is highly relevant for college students and emerging adults entering the workforce. Many people maintain busy lives but often forget to balance it with proper sleep and behaviors that benefit sleep health.
+
+  One of the data in our datasets was collected by the American Time Use Survey from the Bureau of Labor Statistics by surveying a random sample of Americans ages 15 years and older. The participants were grouped by age group and sex. This data helps us analyze the differences in the amount of sleep Americans of different ages and sex get. With a focus on age and sex, we can better analyze the impact these variables have on the amount of sleep people get on average and analyze the general trend of the average sleep hours of people.
+  
+  The data from Michael Lomuscio who teaches data science at an international boarding school in U.S. was also collected to analyze the factors that impact the student's sleep quality. This data represents his student's opinions on if they are receiving adequate sleep, hours a student slept,if their phone is within their reach while in bed, phone usage 30 minutes before they sleep, results from a Likert type scale based on how tired they are throughout the day, and if they eat breakfast or not.
+
+## Summary Information
+
+```{r summary_info, echo = FALSE}
+
+summary_info <- get_summary_info(sleep_study_df)
+
+
+```
+  
+  `r summary_info[[1]]` something
+
+
 
 ## Including Plots
 
