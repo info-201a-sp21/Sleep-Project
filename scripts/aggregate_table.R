@@ -10,6 +10,11 @@ summary_table <- function(df) {
               sleep_variance = var(Avg.hrs.per.day.sleeping),
               sleep_SD = sd(Avg.hrs.per.day.sleeping)
               ) %>%
-    arrange(-avg_sleep)
+    arrange(-avg_sleep) %>%
+    rename("Age Group" = Age.Group,
+              "Number of Respondents" = count,
+              "Average Hours of Sleep" = avg_sleep,
+              "Sleep Variance" = sleep_variance,
+              "Sleep Standard Deviation" = sleep_SD)
   return(aggregate_df)
 }

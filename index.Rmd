@@ -1,11 +1,12 @@
 ---
 title: "index.Rmd"
-author: "woojin, matt, evan, celine"
+author: "Woojin, Matt, Evan, Celine"
 date: "5/16/2021"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
+#Loading in all analysis files
 knitr::opts_chunk$set(echo = TRUE)
 source("scripts/aggregate_table.R")
 source("scripts/avg time slept pie chart.R")
@@ -14,17 +15,14 @@ source("scripts/trend of avg sleep hr in each age group.R")
 source("scripts/types of days vs avg time slept.R")
 library("knitr")
 
-american_time_use_survey_df <- read.csv("data/Time Americans Spend Sleeping.csv",
-                                        stringsAsFactors = FALSE)
+american_time_use_survey_df <- read.csv(
+  "data/Time Americans Spend Sleeping.csv",
+  stringsAsFactors = FALSE
+)
 
 sleep_study_df <- read.csv("data/SleepStudyData.csv",
-                           stringsAsFactors = FALSE)
-
-```
-
-
-```{r include=FALSE}
-# source("analysis.R")
+  stringsAsFactors = FALSE
+)
 ```
 
 ## Introduction
@@ -35,26 +33,48 @@ sleep_study_df <- read.csv("data/SleepStudyData.csv",
   
   The data from Michael Lomuscio who teaches data science at an international boarding school in the U.S. was also collected to analyze the factors that impact the student's sleep quality. This data represents his student's opinions on if they are receiving adequate sleep, hours a student slept, if their phone is within their reach while in bed, phone usage 30 minutes before they sleep, results from a Likert type scale based on how tired they are throughout the day, and if they eat breakfast or not.
 
+Data: https://data.world/makeovermonday/2019w23/workspace/file?filename=Time+Americans+Spend+Sleeping.xlsx
+
+Data for summary information: https://www.kaggle.com/mlomuscio/sleepstudypilot?select=SleepStudyData.csv
+
 ## Summary Information
 
-```{r summary_info, echo = FALSE}
-
+```{r summary_info, echo=FALSE}
 summary_info <- get_summary_info(sleep_study_df)
-
-
 ```
   
   From the data by Michael Lomuscio who collected the data from students in international boarding school, our team founded that on average, students think that they get enough sleep when they slept `r summary_info[[1]]` hours. The average sleep hours for the phone-use group(the students who use the phone within 30 minutes of falling asleep) was `r summary_info[[2]]` hours while the non-phone-use group(the students who do not use the phone before falling asleep) had `r summary_info[[3]]` hours on average. We could observe that both groups do not reach the average ideal sleeping hours(`r summary_info[[1]]`) that students felt enough. With those two data points, we could also observe that the phone-use group slept more than the non-phone-use group. However, only `r summary_info[[4]]`% of the phone-use group said that they are getting enough sleep while `r summary_info[[5]]`% of the non-phone-use group agreed with getting enough sleep. Even though the non-phone-use group slept less, they had a higher percentage of students who agreed with getting enough sleep. From these analyses, we got an insight that rather than the sleep hours, phone usage before sleeping might impact the sleep quality of the individuals.
   
   Not only the phone usage but eating breakfast also impacted the students' sleeping. The average sleep hour for the breakfast group(students who eat breakfast) was `r summary_info[[6]]` hours while the non-breakfast group(students who do not eat breakfast) had `r summary_info[[7]]` hours. `r summary_info[[8]]`% of the breakfast group agreed that they are having enough sleep while only `r summary_info[[9]]`% of the non-breakfast group agreed. The breakfast group seemed to have more percentage because they slept more than the non-breakfast group. However, the ratio of avg sleep hours between the two groups was 1:`r summary_info[[10]]` (non-breakfast:breakfast), and the ratio of percent of students agreeing with getting enough sleep was 1:`r summary_info[[11]]` (non-breakfast:breakfast). If the breakfast group was having a higher percentage of students agreeing with having enough sleep because they slept more, then those ratios should be the same. Since the ratio of students' enough rate between two groups is higher than the ratio of avg sleep hours, we can conclude that even though we considered the difference between their average sleep hours, still the breakfast group tends to have more students with enough sleep. The analysis from this dataset shows that rather than the hours of sleep, the students' behaviors(phone usage and breakfast) are affecting the sleep quality of individuals.
 
+## Aggregate Table
 
 ```{r echo=FALSE}
+kable(summary_table(american_time_use_survey_df))
+```
+  We included the table to compare various age groups by the average amount of sleep they receive. We also included the table to see how much variance in the average sleep received there is within each age group.
+
+  The summary table reveals that the age group that receives the most sleep is the youngest group used in the dataset-individuals ages 15 to 24 years old. The 15 to 24 year old group was the only group to average above 9 hours of sleep. The group that received the second highest amount of sleep was the oldest group in the data set-those aged 65 years and older. The group that received the least sleep was the age group aged 45 to 54 years old. Another variable that the summary table takes into consideration is the amount of difference within each age group via standard deviation and variance. The variance and standard deviation among all age groups were relatively low. The group with the most variability was the 25 to 34 year old group. On the other hand, the group with the lowest variability was those aged 65 and older. 
+
+  The decision to group our summary table by age was made as we found it to be the grouping that is most useful in regards to the questions that we want answered. A comparison between age groups allows us to understand how much sleep Americans of all ages are receiving, and which of them are receiving the most and which are receiving the least. 
+
+## Charts
+```{r echo=FALSE}
+#Pie chart
 get_pie_chart(american_time_use_survey_df)
 ```
-This chart consolidates the data of average hours slept per day from 2003 to 2017. This information was conveyed through a pie chart because it effectively shows a visual comparison between the different amount of hours spent sleeping on average per day. The chart expresses the comparison of these different amounts of hours spent sleeping in order to demonstrate how many hours spent sleeping is most common, least common, or in between. This is because we seek to understand general sleeping habits, for example how long do people sleep per day on average. By understanding the most common amount of hours spent sleeping, we can potentially extrapolate this to gain a general understanding of the amount of time most people spend sleeping on average and thereby identify if people are generally able to sleep a healthy amount. We found that 8 hours and 9 hours were the most common amount of hours spent sleeping on average per day. However, 8 hours was the most frequent, accounting for over half of the data meaning generally people did not experience significant disturbances that impaired them from achieving a healthy amount of sleep.
+
+  This chart consolidates the data of average hours slept per day from 2003 to 2017. This information was conveyed through a pie chart because it effectively shows a visual comparison between the different amount of hours spent sleeping on average per day. The chart expresses the comparison of these different amounts of hours spent sleeping in order to demonstrate how many hours spent sleeping is most common, least common, or in between. This is because we seek to understand general sleeping habits, for example how long do people sleep per day on average. By understanding the most common amount of hours spent sleeping, we can potentially extrapolate this to gain a general understanding of the amount of time most people spend sleeping on average and thereby identify if people are generally able to sleep a healthy amount. We found that 8 hours and 9 hours were the most common amount of hours spent sleeping on average per day. However, 8 hours was the most frequent, accounting for over half of the data meaning generally people did not experience significant disturbances that impaired them from achieving a healthy amount of sleep.
 
 ```{r echo=FALSE}
-get_violin_plot(american_time_use_survey_df)
+#Scatter plot
+get_point_plot(american_time_use_survey_df)
 ```
+  This is a categorical scatter plot measuring the amount of hours people sleep for three types of days: weekends and holidays, weekdays and non-holidays, and all days. The visualization reveals that the average sleep for weekends was 9.33 hours, 8.40 hours for weekdays, and 8.68 hours across all days. These results tell us that people change their sleeping patterns by nearly an hour from weekday to weekend, which can negatively affect their circadian rhythm. Changing one’s sleep patterns can harm sleep health and the data allows us to view why some may be unsatisfied with their sleep. 
+
+```{r echo=FALSE, message=FALSE}
+#Line plot
+get_trend_line_plot(american_time_use_survey_df)
+```
+  We used line graphs for looking at the trends of average sleep hours in different age groups and comparing those trends between age groups. This line graph visualization reveals that except for the age group of 65 years and over, the average sleep hours for most of the age groups tend to rise slightly over the year. The age group of 65 years and over tends to stay the same while the age group of 15 to 24 years rises significantly compared to the other age group. These results help us to gain an insight that the reason for people having sleeping problems nowadays is not from the actual amount of sleep hours that they are having.
 
