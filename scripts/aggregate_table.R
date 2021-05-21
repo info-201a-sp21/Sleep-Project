@@ -1,7 +1,7 @@
 library("dplyr")
 
 #summary table grouped by age
-summary_table <- function(df){
+summary_table <- function(df) {
   aggregate_df <- df %>%
     select(Avg.hrs.per.day.sleeping, Age.Group) %>%
     group_by(Age.Group) %>%
@@ -13,5 +13,3 @@ summary_table <- function(df){
     arrange(-avg_sleep)
   return(aggregate_df)
 }
-
-
