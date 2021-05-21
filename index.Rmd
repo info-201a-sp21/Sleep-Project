@@ -20,12 +20,8 @@ american_time_use_survey_df <- read.csv("data/Time Americans Spend Sleeping.csv"
 sleep_study_df <- read.csv("data/SleepStudyData.csv",
                            stringsAsFactors = FALSE)
 
-
 ```
 
-## R Markdown
-#This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-#When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r include=FALSE}
 # source("analysis.R")
@@ -53,12 +49,12 @@ summary_info <- get_summary_info(sleep_study_df)
   Not only the phone usage but eating breakfast also impacted the students' sleeping. The average sleep hour for the breakfast group(students who eat breakfast) was `r summary_info[[6]]` hours while the non-breakfast group(students who do not eat breakfast) had `r summary_info[[7]]` hours. `r summary_info[[8]]`% of the breakfast group agreed that they are having enough sleep while only `r summary_info[[9]]`% of the non-breakfast group agreed. The breakfast group seemed to have more percentage because they slept more than the non-breakfast group. However, the ratio of avg sleep hours between the two groups was 1:`r summary_info[[10]]` (non-breakfast:breakfast), and the ratio of percent of students agreeing with getting enough sleep was 1:`r summary_info[[11]]` (non-breakfast:breakfast). If the breakfast group was having a higher percentage of students agreeing with having enough sleep because they slept more, then those ratios should be the same. Since the ratio of students' enough rate between two groups is higher than the ratio of avg sleep hours, we can conclude that even though we considered the difference between their average sleep hours, still the breakfast group tends to have more students with enough sleep. The analysis from this dataset shows that rather than the hours of sleep, the students' behaviors(phone usage and breakfast) are affecting the sleep quality of individuals.
 
 
-## Including Plots
+```{r echo=FALSE}
+get_pie_chart(american_time_use_survey_df)
+```
+This chart consolidates the data of average hours slept per day from 2003 to 2017. This information was conveyed through a pie chart because it effectively shows a visual comparison between the different amount of hours spent sleeping on average per day. The chart expresses the comparison of these different amounts of hours spent sleeping in order to demonstrate how many hours spent sleeping is most common, least common, or in between. This is because we seek to understand general sleeping habits, for example how long do people sleep per day on average. By understanding the most common amount of hours spent sleeping, we can potentially extrapolate this to gain a general understanding of the amount of time most people spend sleeping on average and thereby identify if people are generally able to sleep a healthy amount. We found that 8 hours and 9 hours were the most common amount of hours spent sleeping on average per day. However, 8 hours was the most frequent, accounting for over half of the data meaning generally people did not experience significant disturbances that impaired them from achieving a healthy amount of sleep.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r echo=FALSE}
+get_violin_plot(american_time_use_survey_df)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

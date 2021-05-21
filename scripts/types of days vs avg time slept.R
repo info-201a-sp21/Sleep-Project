@@ -2,7 +2,7 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-get_violin_plot <- function(dataset) {
+get_point_plot <- function(dataset) {
   plot <- ggplot(data = dataset, mapping = aes(
     x = Avg.hrs.per.day.sleeping,
     y = Type.of.Days
