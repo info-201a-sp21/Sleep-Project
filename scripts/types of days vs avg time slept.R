@@ -1,15 +1,6 @@
 library("dplyr")
 library("ggplot2")
-library(leaflet)
-library(plotly)
-library(lintr)
-
-
-sleep_data <- read.csv(
-  "https://raw.githubusercontent.com/info-201a-sp21/Sleep-Project
-/master/data/Time%20Americans%20Spend%20Sleeping.csv",
-  stringsAsFactors = FALSE
-)
+library("plotly")
 
 get_violin_plot <- function(dataset) {
   plot <- ggplot(data = dataset, mapping = aes(
@@ -26,7 +17,7 @@ get_violin_plot <- function(dataset) {
     geom_jitter(shape = 16) + 
     stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color = 
                    "red")
-  interactive_plot <- ggplotly(plot_with_points)
-  return(interactive_plot)
+  interactive_point <- ggplotly(plot_with_points)
+  return(interactive_point)
 }
 
