@@ -14,8 +14,8 @@ get_point_plot <- function(dataset) {
     )
 
   plot_with_points <- plot +
-    geom_jitter(shape = 16) + 
-    stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color = 
+    geom_jitter(shape = 16) +
+    stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color =
                    "red")
   interactive_point <- ggplotly(plot_with_points)
   return(interactive_point)

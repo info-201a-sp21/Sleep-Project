@@ -1,4 +1,3 @@
-
 library(dplyr)
 library(ggplot2)
 library(plotly)
@@ -26,5 +25,4 @@ get_trend_line_plot <- function(dataset) {
   interactive_plot <- ggplotly(plot)
   return(interactive_plot)
 }
-
 

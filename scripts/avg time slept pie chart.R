@@ -1,3 +1,6 @@
+library(ggplot2)
+library(dplyr)
+
 get_pie_chart <- function(dataset) {
   avg_hours_df <- dataset %>%
     mutate(sleep_buckets = floor(Avg.hrs.per.day.sleeping))
@@ -22,3 +25,4 @@ get_pie_chart <- function(dataset) {
     )
   return(avg_sleep_chart)
 }
+
