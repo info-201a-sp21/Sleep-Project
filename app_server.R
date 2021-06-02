@@ -19,6 +19,8 @@ server <- function(input, output) {
   get_point_plot(american_time_use_survey_df)
   
   
+  # add sleep hr trend chart for each age group into output
+  # (took age_cat from input)
   output$show_trend <- renderPlotly({
     return(build_chart(american_time_use_survey_df, input$age_cate))
   })
