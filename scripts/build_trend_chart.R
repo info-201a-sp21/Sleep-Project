@@ -2,7 +2,7 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 
-build_map <- function(dataset, selected_age) {
+build_chart <- function(dataset, selected_age) {
 
   trend_of_avg_hrs_of_all_age <- dataset %>%
     group_by(Year, Age.Group) %>%
