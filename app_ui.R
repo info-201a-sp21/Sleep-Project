@@ -27,6 +27,7 @@ page_2 <- tabPanel(
   )
 )
 
+# Page 3 - side - making sidebarPanel (Sleep Trend vs. Age Group)
 page_3_side <- sidebarPanel(
   p(
   "The interactive graph to the right depict the trend of average sleep
@@ -54,10 +55,12 @@ page_3_side <- sidebarPanel(
   )
 )
 
+# Page 3 - main - making mainPanel (Sleep Trend vs. Age Group)
 page_3_main <- mainPanel(
   plotlyOutput("show_trend")
 )
 
+# Page 3 - combine the side and main panels
 page_3 <- tabPanel(
   "Average Sleep Hour Trends per Age Group",
   h2("Trend of Average Sleep Hours In Each Age Group"),
@@ -67,6 +70,8 @@ page_3 <- tabPanel(
   )
 )
 
+
+# Create ui with all the pages we need
 ui <- navbarPage(
   "Investigating Sleep Habits",
   page_2,
