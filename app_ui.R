@@ -69,5 +69,6 @@ page_3 <- tabPanel(
 
 ui <- navbarPage(
   "Investigating Sleep Habits",
-  page_2
+  page_2,
+  page_3
 )
