@@ -1,13 +1,18 @@
 library(plotly)
 library(shiny)
+library("shinyWidgets")
+
+setBackgroundColor(
+  color = #255377
+)
 
 # Page 1 - Intro Page - writing introduction for our project
 intro_page <- tabPanel(
   inputId = "intro",
     "About Our Project",
-    tags$img(src =
+    tags$img(id = "image_sleeping", src =
 "https://forum.facmedicine.com/data/MetaMirrorCache/db5d4dcbb12c091cf69728570a385b92.jpg",
-width = "500px", height = "300px"      
+width = "500px", height = "300px",
 ),
     h1("Introduction"),
     p(
@@ -47,6 +52,7 @@ width = "500px", height = "300px"
 
 # Page 2 - Side panel with information about the chart.
 page_2_side <- sidebarPanel(
+  style = "background-color: #81C4EF",
   p(
     "Here, you can observe the average amount of sleep during each type of day.
     There are three types of days to choose from: Weekend days and holidays, 
@@ -71,7 +77,7 @@ page_2_side <- sidebarPanel(
 
 # Page 2 - 
 page_2_main <- mainPanel(
-  plotlyOutput("scatter")
+  plotlyOutput("scatter"),
 )
 
 # Page 2 - 
@@ -88,6 +94,7 @@ page_2 <- tabPanel(
 # Page 3 - side - some description about the chart & 
 #               - provide list to select (Sleep Trend vs. Age Group)
 page_3_side <- sidebarPanel(
+  style = "background-color: #81C4EF",
   p(
   "The interactive graph to the right depicts the trend of average sleep
     hours in each age group. The default is set to compare these trends between 
@@ -135,6 +142,7 @@ page_3 <- tabPanel(
 #sleep received by all the age groups in the data. Also lets you compare if the
 #amount of sleep varied from year to year
 page_4_side <- sidebarPanel(
+  style = "background-color: #81C4EF",
   p(
     "The interactive barplot on this page offers a visualization of the average
     amount of sleep various age groups of Americans got during the selected
@@ -213,7 +221,8 @@ they are having."
 # Create ui with all the pages we need
 ui <- fluidPage(
   includeCSS("style.css"),
-   navbarPage("Investigating Sleep Habits",
+  navbarPage(
+  "Investigating Sleep Habits",
   intro_page,
   page_2,
   page_3,

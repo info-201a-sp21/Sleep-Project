@@ -1,0 +1,20 @@
+body {
+  background-color: #255377;
+  color: white;
+}
+
+
+#image_sleeping {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-default {
+    background-color: #F4E167 !important;
+}
+
+.navbar-default:hover {
+    background-color: #F4E167 !important;
+    color: #F4E167;
+}
