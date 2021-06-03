@@ -89,9 +89,10 @@ page_4_side <- sidebarPanel(
     "The interactive barplot on this page offers a visualization of the average
     amount of sleep various age groups of Americans got during the selected
     year. Users can pick a year of their choice in order to compare the sleep
-    received by each age group. From observing data from various years we can 
-    also analyze whether there are any visually notable differences between the 
-    years in terms of how much sleep Americans got."
+    received by each age group. Users can also hover over the bars in order to 
+    get the exact averages for each group. From observing data from various 
+    years we can also analyze whether there are any visually notable differences
+    between the years in terms of how much sleep Americans got."
   ),
   h2("Select a Year"),
   radioButtons(
@@ -109,15 +110,13 @@ page_4_side <- sidebarPanel(
 
 page_4_main <- mainPanel(
   h1(paste0("Have American Sleep Patterns Changed Over the Years?"),
-     plotOutput("year_barplot")
+     plotlyOutput("year_barplot")
   ))
 
-page_4 <- tabPanel(
-  "Sleep Trends by Year",
+page_4 <- fluidPage(
   sidebarLayout(
-    page_4_side,
-    page_4_main
-  )
+    sidebarPanel =  page_4_side,
+    mainPanel = page_4_main)
 )
 
 # Conclusion Page - 
