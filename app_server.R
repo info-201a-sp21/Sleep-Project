@@ -26,6 +26,7 @@ server <- function(input, output) {
   output$show_trend <- renderPlotly({
     return(build_chart(american_time_use_survey_df, input$age_cate))
   })
+  
   # p.4 server code
   year_data <- reactive({
     req(input$selectedYear)
