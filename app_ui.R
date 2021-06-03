@@ -2,20 +2,18 @@ library(plotly)
 library(shiny)
 
 # Page 1 - Intro Page - writing introduction for our project
-intro_page <- tabPanel(
-  
-)
+# intro_page <- tabPanel()
 
 # Page 2 - Side panel with information about the chart.
 page_2_side <- sidebarPanel(
   p(
-  "Here, you can observe the average amount of sleep during each type of day.
-  There are three types of days to choose from: Weekend days and holidays, 
-  weekends that are nonholidays, and the average amount of sleep for all days.
+    "Here, you can observe the average amount of sleep during each type of day.
+    There are three types of days to choose from: Weekend days and holidays, 
+    weekends that are nonholidays, and the average amount of sleep for all days.
   "),
   p(
-  "Selecting an option from the dropdown menu shows the data for that category
-  below."
+    "Selecting an option from the dropdown menu shows the data for that category
+    below."
   ),
   selectInput(
     inputId = "scattervar",
@@ -130,9 +128,7 @@ page_4 <- fluidPage(
 )
 
 # Conclusion Page - 
-conclusion_page <- tabPanel(
-  
-)
+# conclusion_page <- tabPanel()
 
 
 # Create ui with all the pages we need
