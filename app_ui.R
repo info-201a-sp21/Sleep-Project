@@ -97,13 +97,14 @@ page_2 <- tabPanel(
 page_3_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
-  "The interactive graph to the right depicts the trend of average sleep
-    hours in each age group. The default is set to compare these trends between 
-    age groups. Hover to see the exact average amount of
-    sleep hours in each year"),
+  "The interactive graph to the right depicts the trend of American average
+  sleep hours in various age group. The default is set to compare these trends
+  between all age groups. Selecting an age group in dropdown menu will
+  visualize the line graph of selected age group. Hover to see the exact
+  average amount of sleep hours in each year"),
   p(
-    "You can see the sleep hours trend for a specific age group by selecting
-    an age group category below."
+    "You can see the Americans' sleep hours trend for a specific age group
+    by selecting an age group category below."
   ),
   selectInput(
     inputId = "age_cate",
