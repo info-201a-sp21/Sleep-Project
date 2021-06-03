@@ -4,19 +4,20 @@ library(shiny)
 # Page 1 - Intro Page - writing introduction for our project
 intro_page <- tabPanel(
   inputId = "intro",
-  fluidPage(
-    h1("About Our Project"),
+    "About Our Project",
+    tags$img(src =
+"https://forum.facmedicine.com/data/MetaMirrorCache/db5d4dcbb12c091cf69728570a385b92.jpg",
+width = "500px", height = "300px"      
+),
+    h1("Introduction"),
     p(
      " The balance between sleep and school or work can becomes extremely disrupted. 
       Sleep is highly needed but often sacrificed in order to 
       meet deadlines and complete work. Our project seeks to understand if this balance
       between sleep and school or work is highly imbalanced or if people are generally able
-      to achieve a healthy amount of sleep. Therefore, our project is interested 
-      in exploring this relationship between Americans and the amount of sleep they get 
-      in order to derive findings regarding Americans and the amount they are spent working, 
-      sleeping, and their health as sleep impacts that tremendously."
+      to achieve a healthy amount of sleep."
     ),
-    h1("Our Data Source"),
+    h3("Our Data Source"),
     p(
       "In order to answer these questions about the relationship between Americans
       and sleep, we used data collected from 2003 to 2017 by American Time Use Survey
@@ -26,23 +27,23 @@ intro_page <- tabPanel(
       sleeping, the average hours per day spent sleeping, the sex of the respondent,
       their age range, the year the data was collected.
     "),
-    h1("Our Major Questions for Our Data"),
-    p(
-      "- What are the differences in hours slept between days in general, 
-      weekends and holidays, and nonholiday weekends?
-        We derived this information from the columns in the dataset that 
-      pertained to types of days and average hours slept per day to answer this question.
-      - What are the average number of hours slept by each age group over the 
-      period of 2003-2017?
-        We used the average number of hours slept per day and the age groups to
-      answer this question.
-      - Generally, across sexes and age groups, what are the average hours of sleep
-      Americans getting from the years 2003 to 2017?
-        We used data from the sexes, age groups, and average hours slept by per day from
-      our entire dataset to answer this question."
+    h3("Our Major Questions for Our Data"),
+  tags$ul(
+    tags$li("What are the differences in hours slept between days in general, 
+      weekends and holidays, and nonholiday weekends?"),
+    p("We derived this information from the columns in the dataset that 
+       pertained to types of days and average hours slept per day to answer this question."),
+    tags$li("What are the average number of hours slept by each age group over the 
+      period of 2003-2017?"),
+    p("We used the average number of hours slept per day and the age groups to
+      answer this question."),
+    tags$li("Generally, across sexes and age groups, what are the average hours of sleep
+      Americans getting from the years 2003 to 2017?"),
+    p("We used data from the sexes, age groups, and average hours slept by per day from
+      our entire dataset to answer this question.")
     )
   )
-)
+
 
 # Page 2 - Side panel with information about the chart.
 page_2_side <- sidebarPanel(
@@ -169,16 +170,53 @@ page_4 <- tabPanel(
     mainPanel = page_4_main)
 )
 
-# conclusion_page <- tabPanel()
+conclusion_page <- tabPanel(
+  inputId = "conclusion",
+  "Takeaways",
+    h2("Takeaway 1: Hours Americans Spend Sleeping"),
+      p(
+"In this chart, our research uncovered common hours Americans spent 
+sleeping. We found that 8 hours and 9 hours were the most common amount of
+hours spent sleeping on average per day. However, 8 hours was the most frequent, 
+accounting for over half of the data meaning generally people did not experience 
+significant disturbances that impaired them from achieving a healthy amount of 
+sleep. By understanding the most common amount of hours spent sleeping, we can 
+potentially extrapolate this to gain a general understanding of the amount of 
+time most people spend sleeping on average and thereby identify if people are 
+generally able to sleep a healthy amount."        
+      ),
+    h2("Takeaway 2: Types of Days vs. Hours Americans Spend Sleeping"),
+      p(
+"From our categorical scatterplot, our data revealed large differences 
+in time spent sleeping across three different categories of days. The 
+visualization reveals that the average sleep for weekends was 9.33 hours, 
+8.40 hours for weekdays, and 8.68 hours across all days. These results tell us 
+that people change their sleeping patterns by nearly an hour from weekday to 
+weekend, which can negatively affect their circadian rhythm. Changing one's 
+sleep patterns can harm sleep health and the data allows us to view why some may 
+be unsatisfied with their sleep."        
+      ),
+  h2("Takeaway 3: Trend of Average Sleep Hours in Each Age Group"),
+    p(
+"Our line graph provided insight into the sleeping patterns of different age 
+groups. It revealed that except for the age group of 65 years and over, the 
+average sleep hours for most of the age groups tend to rise slightly over the 
+year. The age group of 65 years and over tends to stay the same while the age 
+group of 15 to 24 years rises significantly compared to the other age group. 
+These results help us to gain an insight that the reason for people having 
+sleeping problems nowadays is not from the actual amount of sleep hours that 
+they are having."
+    ),
+)
 
 
 # Create ui with all the pages we need
 ui <- fluidPage(
   includeCSS("style.css"),
-   navbarPage(
+   navbarPage("Investigating Sleep Habits",
   intro_page,
   page_2,
   page_3,
-  page_4
-)
+  page_4,
+  conclusion_page)
 )
