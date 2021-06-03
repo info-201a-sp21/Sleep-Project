@@ -9,7 +9,6 @@ setBackgroundColor(
 
 # Page 1 - Intro Page - writing introduction for our project
 intro_page <- tabPanel(
-  #inputId = "intro", - tabPanel do not need id
     "About Our Project",
     tags$img(id = "image_sleeping", src =
 "https://forum.facmedicine.com/data/MetaMirrorCache/db5d4dcbb12c091cf69728570a385b92.jpg",
@@ -17,8 +16,8 @@ width = "500px", height = "300px"
 ),
     h1("Introduction"),
     p(
-     " The balance between sleep and school or work can becomes extremely disrupted. 
-      Sleep is highly needed but often sacrificed in order to 
+     " The balance between sleep and school or work can becomes extremely disrupted.
+      Sleep is highly needed but often sacrificed in order to
       meet deadlines and complete work. Our project seeks to understand if this balance
       between sleep and school or work is highly imbalanced or if people are generally able
       to achieve a healthy amount of sleep."
@@ -27,7 +26,7 @@ width = "500px", height = "300px"
     p(
       "In order to answer these questions about the relationship between Americans
       and sleep, we used data collected from 2003 to 2017 by American Time Use Survey
-      from the Bureau of Labor Statistics. The survey gathered data from a 
+      from the Bureau of Labor Statistics. The survey gathered data from a
       random sample of Americans of both sexes, ranging from ages 15 to 60 years and
       over. Namely, the dataset provides information about the type of day respondents reported
       sleeping, the average hours per day spent sleeping, the sex of the respondent,
@@ -35,11 +34,11 @@ width = "500px", height = "300px"
     "),
     h3("Our Major Questions for Our Data"),
   tags$ul(
-    tags$li("What are the differences in hours slept between days in general, 
+    tags$li("What are the differences in hours slept between days in general,
       weekends and holidays, and nonholiday weekends?"),
-    p("We derived this information from the columns in the dataset that 
+    p("We derived this information from the columns in the dataset that
        pertained to types of days and average hours slept per day to answer this question."),
-    tags$li("What are the average number of hours slept by each age group over the 
+    tags$li("What are the average number of hours slept by each age group over the
       period of 2003-2017?"),
     p("We used the average number of hours slept per day and the age groups to
       answer this question."),
@@ -56,7 +55,7 @@ page_2_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
     "Here, you can observe the average amount of sleep during each type of day.
-    There are three types of days to choose from: Weekend days and holidays, 
+    There are three types of days to choose from: Weekend days and holidays,
     weekends that are nonholidays, and the average amount of sleep for all days.
   "),
   p(
@@ -76,12 +75,12 @@ page_2_side <- sidebarPanel(
   )
 )
 
-# Page 2 - 
+# Page 2 - main Panel with scatter plot
 page_2_main <- mainPanel(
   plotlyOutput("scatter"),
 )
 
-# Page 2 - 
+# Page 2 - combine side and main panel
 page_2 <- tabPanel(
   "Types of Days vs. Avg Hours Slept",
   h2("Types of Days vs. Average Hours Slept per Day"),
@@ -92,7 +91,7 @@ page_2 <- tabPanel(
 )
 
 
-# Page 3 - side - some description about the chart & 
+# Page 3 - side - some description about the chart &
 #               - provide list to select (Sleep Trend vs. Age Group)
 page_3_side <- sidebarPanel(
   style = "background-color: #81C4EF",
@@ -140,9 +139,7 @@ page_3 <- tabPanel(
   )
 )
 
-#Page 4 - Interactive Bar Chart that allows you to select a year to compare
-#sleep received by all the age groups in the data. Also lets you compare if the
-#amount of sleep varied from year to year
+#Page 4 - side panel for introduction of the bar plot
 page_4_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
@@ -164,6 +161,7 @@ page_4_side <- sidebarPanel(
   )
 )
 
+#Page 4 - main panel for displaying interactive bar plot
 page_4_main <- mainPanel(
   conditionalPanel(
     condition = "input.check == false",
@@ -175,6 +173,7 @@ page_4_main <- mainPanel(
   )
 )
 
+#Page 4 - combining main and side panel
 page_4 <- tabPanel(
   "Hours American Spend Sleeping",
   h1("How many Hours American Spend Sleeping on Average? (Year 2003 to 2017)"),
@@ -183,41 +182,40 @@ page_4 <- tabPanel(
     page_4_main)
 )
 
+# create conclusion page
 conclusion_page <- tabPanel(
-  #inputId = "conclusion",  - same, tabPanel do not need id
   "Takeaways",
     h2("Takeaway 1: Hours Americans Spend Sleeping"),
       p(
-"In this chart, our research uncovered common hours Americans spent 
+"In this chart, our research uncovered common hours Americans spent
 sleeping. We found that 8 hours and 9 hours were the most common amount of
-hours spent sleeping on average per day. However, 8 hours was the most frequent, 
-accounting for over half of the data meaning generally people did not experience 
-significant disturbances that impaired them from achieving a healthy amount of 
-sleep. By understanding the most common amount of hours spent sleeping, we can 
-potentially extrapolate this to gain a general understanding of the amount of 
-time most people spend sleeping on average and thereby identify if people are 
-generally able to sleep a healthy amount."        
+hours spent sleeping on average per day. However, 8 hours was the most frequent,
+accounting for over half of the data meaning generally people did not experience
+significant disturbances that impaired them from achieving a healthy amount of
+sleep. By understanding the most common amount of hours spent sleeping, we can
+potentially extrapolate this to gain a general understanding of the amount of
+time most people spend sleeping on average and thereby identify if people are
+generally able to sleep a healthy amount."
       ),
     h2("Takeaway 2: Types of Days vs. Hours Americans Spend Sleeping"),
       p(
-"From our categorical scatterplot, our data revealed large differences 
-in time spent sleeping across three different categories of days. The 
-visualization reveals that the average sleep for weekends was 9.33 hours, 
-8.40 hours for weekdays, and 8.68 hours across all days. These results tell us 
-that people change their sleeping patterns by nearly an hour from weekday to 
-weekend, which can negatively affect their circadian rhythm. Changing one's 
-sleep patterns can harm sleep health and the data allows us to view why some may 
-be unsatisfied with their sleep."        
-      ),
+"From our categorical scatterplot, our data revealed large differences
+in time spent sleeping across three different categories of days. The
+visualization reveals that the average sleep for weekends was 9.33 hours,
+8.40 hours for weekdays, and 8.68 hours across all days. These results tell us
+that people change their sleeping patterns by nearly an hour from weekday to
+weekend, which can negatively affect their circadian rhythm. Changing one's
+sleep patterns can harm sleep health and the data allows us to view why some may
+be unsatisfied with their sleep."),
   h2("Takeaway 3: Trend of Average Sleep Hours in Each Age Group"),
     p(
-"Our line graph provided insight into the sleeping patterns of different age 
-groups. It revealed that except for the age group of 65 years and over, the 
-average sleep hours for most of the age groups tend to rise slightly over the 
-year. The age group of 65 years and over tends to stay the same while the age 
-group of 15 to 24 years rises significantly compared to the other age group. 
-These results help us to gain an insight that the reason for people having 
-sleeping problems nowadays is not from the actual amount of sleep hours that 
+"Our line graph provided insight into the sleeping patterns of different age
+groups. It revealed that except for the age group of 65 years and over, the
+average sleep hours for most of the age groups tend to rise slightly over the
+year. The age group of 65 years and over tends to stay the same while the age
+group of 15 to 24 years rises significantly compared to the other age group.
+These results help us to gain an insight that the reason for people having
+sleeping problems nowadays is not from the actual amount of sleep hours that
 they are having."
     )
 )
@@ -234,3 +232,4 @@ ui <- fluidPage(
   page_4,
   conclusion_page)
 )
+
