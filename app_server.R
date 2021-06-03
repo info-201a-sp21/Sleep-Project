@@ -4,6 +4,7 @@ source("scripts/summary_info.R")
 source("scripts/trend of avg sleep hr in each age group.R")
 source("scripts/types of days vs avg time slept.R")
 source("scripts/build_trend_chart.R")
+source("scripts/get_point_plot.R")
 
 american_time_use_survey_df <- read.csv(
   "data/Time Americans Spend Sleeping.csv",
@@ -26,6 +27,7 @@ server <- function(input, output) {
   output$show_trend <- renderPlotly({
     return(build_chart(american_time_use_survey_df, input$age_cate))
   })
+  
   # p.4 server code
   year_data <- reactive({
     req(input$selectedYear)

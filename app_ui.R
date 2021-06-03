@@ -2,6 +2,7 @@ library(plotly)
 library(shiny)
 
 # Page 1 - Intro Page - writing introduction for our project
+
 # intro_page <- tabPanel()
 
 # Page 2 - Side panel with information about the chart.
@@ -19,11 +20,12 @@ page_2_side <- sidebarPanel(
     inputId = "scattervar",
     label = "Select Plot Variable",
     choices = list(
+      "All Averages" = "averages",
       "Weekend Days & Holidays" = "w_and_h",
       "Nonholiday Weekends" = "n_w",
       "All days" = "all_days"
     ),
-    selected = "w_and_h"
+    selected = "averages"
   )
 )
 
@@ -121,13 +123,13 @@ page_4_main <- mainPanel(
      plotlyOutput("year_barplot")
   ))
 
-page_4 <- fluidPage(
+page_4 <- tabPanel(
+  "Matt's Page",
   sidebarLayout(
     sidebarPanel =  page_4_side,
     mainPanel = page_4_main)
 )
 
-# Conclusion Page - 
 # conclusion_page <- tabPanel()
 
 
