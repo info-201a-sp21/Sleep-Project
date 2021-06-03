@@ -2,8 +2,12 @@ library(plotly)
 library(shiny)
 
 # Page 1 - Intro Page - writing introduction for our project
- intro_page <- tabPanel(
-  h1("Investing Sleep Habits")
+intro_page_main <- mainPanel(
+  h1("Investigating Sleep Habits")
+)
+ 
+intro_page_tab <- tabPanel(
+  "Intro Page"
 )
 
 # Page 2 - Side panel with information about the chart.
@@ -135,9 +139,12 @@ page_4 <- tabPanel(
 
 
 # Create ui with all the pages we need
-ui <- navbarPage(
+ui <- fluidPage(
+  includeCSS("style.css")
+   navbarPage(
   intro_page,
   page_2,
   page_3,
   page_4
+)
 )
