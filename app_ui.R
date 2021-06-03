@@ -6,13 +6,14 @@ setBackgroundColor(
   color = #255377
 )
 
+
 # Page 1 - Intro Page - writing introduction for our project
 intro_page <- tabPanel(
-  inputId = "intro",
+  #inputId = "intro", - tabPanel do not need id
     "About Our Project",
     tags$img(id = "image_sleeping", src =
 "https://forum.facmedicine.com/data/MetaMirrorCache/db5d4dcbb12c091cf69728570a385b92.jpg",
-width = "500px", height = "300px",
+width = "500px", height = "300px"
 ),
     h1("Introduction"),
     p(
@@ -179,7 +180,7 @@ page_4 <- tabPanel(
 )
 
 conclusion_page <- tabPanel(
-  inputId = "conclusion",
+  #inputId = "conclusion",  - same, tabPanel do not need id
   "Takeaways",
     h2("Takeaway 1: Hours Americans Spend Sleeping"),
       p(
@@ -214,7 +215,7 @@ group of 15 to 24 years rises significantly compared to the other age group.
 These results help us to gain an insight that the reason for people having 
 sleeping problems nowadays is not from the actual amount of sleep hours that 
 they are having."
-    ),
+    )
 )
 
 
