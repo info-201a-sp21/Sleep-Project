@@ -16,7 +16,7 @@ get_bar_chart_and_table <- function(dataset, selection) {
       percentage = round((n() / total_num) * 100, digits = 2)
     )
 
-  if (selection == FALSE) {
+  if (selection == 1) {
     avg_sleep_barchart <- ggplot(data = get_frequency_and_percent,
                                  mapping = aes(x = sleep_hour,
                                                y = frequency,

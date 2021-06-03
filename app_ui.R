@@ -146,38 +146,41 @@ page_3 <- tabPanel(
 page_4_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
-    "The interactive barplot on this page offers a visualization of the average
-    amount of sleep various age groups of Americans got during the selected
-    year. Users can pick a year of their choice in order to compare the sleep
-    received by each age group. Users can also hover over the bars in order to 
-    get the exact averages for each group. From observing data from various 
-    years we can also analyze whether there are any visually notable differences
-    between the years in terms of how much sleep Americans got."
+    "The interactive barplot consolidates the data of average hours slept per
+    day from 2003 to 2017. This information was conveyed through a barplot
+    because it effectively shows a visual comparison between the different
+    amount of hours spent sleeping on average per day. The barplot expresses
+    the comparison of these different amounts of hours spent sleeping in order
+    to demonstrate how many horus spent sleeping is most common, least common,
+    or in between. Hover to see the exact amount of people fall in each
+    category."),
+  p(
+    "In addiion, toggle the button below to display the table view of the data"
   ),
-  h2("Select a Year"),
-  radioButtons(
-    inputId = "selectedYear",
-    label = h3("Year"),
-    choices = list(
-      "2003" = 2003, "2004" = 2004, "2005" = 2005, "2006" = 2006, 
-      "2007" = 2007, "2008" = 2007, "2009" = 2009, "2010" = 2010,
-      "2011" = 2011, "2012" = 2012, "2013" = 2013, "2014" = 2014,
-      "2015" = 2015, "2016" = 2016, "2017" = 2017
-    ),
-    selected = 2003
+  checkboxInput(
+    inputId = "check",
+    label = "Display Table",
+    value = FALSE
   )
 )
 
 page_4_main <- mainPanel(
-  h1(paste0("Have American Sleep Patterns Changed Over the Years?"),
-     plotlyOutput("year_barplot")
-  ))
+  conditionalPanel(
+    condition = "input.check == false",
+    plotlyOutput("get_barplot")
+  ),
+  conditionalPanel(
+    condition = "input.check == true",
+    tableOutput("get_table")
+  )
+)
 
 page_4 <- tabPanel(
-  "Yearly Sleep Patterns",
+  "Hours American Spend Sleeping",
+  h1("How many Hours American Spend Sleeping on Average? (Year 2003 to 2017)"),
   sidebarLayout(
-    sidebarPanel =  page_4_side,
-    mainPanel = page_4_main)
+    page_4_side,
+    page_4_main)
 )
 
 conclusion_page <- tabPanel(

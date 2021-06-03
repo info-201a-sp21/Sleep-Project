@@ -5,6 +5,7 @@ source("scripts/trend of avg sleep hr in each age group.R")
 source("scripts/types of days vs avg time slept.R")
 source("scripts/build_trend_chart.R")
 source("scripts/get_point_plot.R")
+source("scripts/build_bar_chart_and_table.R")
 
 american_time_use_survey_df <- read.csv(
   "data/Time Americans Spend Sleeping.csv",
@@ -29,24 +30,15 @@ server <- function(input, output) {
   })
   
   # p.4 server code
-  year_data <- reactive({
-    req(input$selectedYear)
-    new_df <- american_time_use_survey_df %>%
-      filter(Year %in% input$selectedYear) %>%
-      group_by(Age.Group) %>%
-      summarise(
-        avg_sleep = mean(Avg.hrs.per.day.sleeping)
-      )
+  output$get_barplot <- renderPlotly({
+    return(get_bar_chart_and_table(american_time_use_survey_df, 1))
   })
-  output$year_barplot <- renderPlotly({
-    p4_barplot <- ggplot(year_data(), aes(y = avg_sleep, x = Age.Group,
-                                          text = paste(avg_sleep, "Hours"))) + 
-      geom_col() + coord_flip() + labs(
-        title = paste("Average Hours Slept in America in", input$selectedYear), 
-        x = "Age Group", y = "Average Hours Slept per Day")
-    int_p4_bp <- ggplotly(p4_barplot, tooltip = "text")
-    return(int_p4_bp)
+  
+  output$get_table <- renderTable({
+    return(get_bar_chart_and_table(american_time_use_survey_df, 2))
+    
   })
+  
 } ##### <- our function ends here!!
 
 
