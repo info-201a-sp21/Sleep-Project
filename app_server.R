@@ -15,8 +15,10 @@ sleep_study_df <- read.csv("data/SleepStudyData.csv",
 )
 
 server <- function(input, output) {
-  output$
-  get_point_plot(american_time_use_survey_df)
+  output$scatter <- renderPlotly({
+    return(get_point_plot(american_time_use_survey_df, input$scattervar))
+  })
+  
   
   
   # add sleep hr trend chart for each age group into output

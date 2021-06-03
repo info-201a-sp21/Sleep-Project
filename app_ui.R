@@ -6,30 +6,40 @@ intro_page <- tabPanel(
   
 )
 
-# Page 2 - 
+# Page 2 - Side panel with information about the chart.
 page_2_side <- sidebarPanel(
+  p(
+  "Here, you can observe the average amount of sleep during each type of day.
+  There are three types of days to choose from: Weekend days and holidays, 
+  weekends that are nonholidays, and the average amount of sleep for all days.
+  "),
+  p(
+  "Selecting an option from the dropdown menu shows the data for that category
+  below."
+  ),
   selectInput(
-    "scattervar",
+    inputId = "scattervar",
     label = "Select Plot Variable",
     choices = list(
       "Weekend Days & Holidays" = "w_and_h",
       "Nonholiday Weekends" = "n_w",
       "All days" = "all_days"
-    )
+    ),
+    selected = "w_and_h"
   )
 )
 
 # Page 2 - 
 page_2_main <- mainPanel(
-  renderPlotly("scatter")
+  plotlyOutput("scatter")
 )
 
 # Page 2 - 
 page_2 <- tabPanel(
   "Types of Days vs. Avg Hours Slept",
-  titlePanel("Types of Days vs. Average Hours Slept per Day"),
+  h2("Types of Days vs. Average Hours Slept per Day"),
   sidebarLayout(
-    page_2,
+    page_2_side,
     page_2_main
   )
 )
@@ -39,12 +49,12 @@ page_2 <- tabPanel(
 #               - provide list to select (Sleep Trend vs. Age Group)
 page_3_side <- sidebarPanel(
   p(
-  "The interactive graph to the right depict the trend of average sleep
-    hours in each age group and overall is set to default for comparing
-    those trends between age groups. Hover to see the exact average sleep
-    hours in each year"),
+  "The interactive graph to the right depicts the trend of average sleep
+    hours in each age group. The default is set to compare these trends between 
+    age groups. Hover to see the exact average amount of
+    sleep hours in each year"),
   p(
-    "You can seee the sleep hours trend for a specific age group by selecting
+    "You can see the sleep hours trend for a specific age group by selecting
     an age group category below."
   ),
   selectInput(
