@@ -81,6 +81,44 @@ page_3 <- tabPanel(
   )
 )
 
+#Page 4 - Interactive Bar Chart that allows you to select a year to compare
+#sleep received by all the age groups in the data. Also lets you compare if the
+#amount of sleep varied from year to year
+page_4_side <- sidebarPanel(
+  p(
+    "The interactive barplot on this page offers a visualization of the average
+    amount of sleep various age groups of Americans got during the selected
+    year. Users can pick a year of their choice in order to compare the sleep
+    received by each age group. From observing data from various years we can 
+    also analyze whether there are any visually notable differences between the 
+    years in terms of how much sleep Americans got."
+  ),
+  h2("Select a Year"),
+  radioButtons(
+    inputId = "selectedYear",
+    label = h3("Year"),
+    choices = list(
+      "2003" = 2003, "2004" = 2004, "2005" = 2005, "2006" = 2006, 
+      "2007" = 2007, "2008" = 2007, "2009" = 2009, "2010" = 2010,
+      "2011" = 2011, "2012" = 2012, "2013" = 2013, "2014" = 2014,
+      "2015" = 2015, "2016" = 2016, "2017" = 2017
+    ),
+    selected = 2003
+  )
+)
+
+page_4_main <- mainPanel(
+  h1(paste0("Have American Sleep Patterns Changed Over the Years?"),
+     plotOutput("year_barplot")
+  ))
+
+page_4 <- tabPanel(
+  "Sleep Trends by Year",
+  sidebarLayout(
+    page_4_side,
+    page_4_main
+  )
+)
 
 # Conclusion Page - 
 conclusion_page <- tabPanel(
@@ -92,5 +130,6 @@ conclusion_page <- tabPanel(
 ui <- navbarPage(
   "Investigating Sleep Habits",
   page_2,
-  page_3
+  page_3,
+  page_4
 )
