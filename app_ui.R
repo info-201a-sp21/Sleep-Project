@@ -96,11 +96,14 @@ page_2 <- tabPanel(
 page_3_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
-  "The interactive graph to the right depicts the trend of American average
-  sleep hours in various age group. The default is set to compare these trends
-  between all age groups. Selecting an age group in dropdown menu will
-  visualize the line graph of selected age group. Hover to see the exact
-  average amount of sleep hours in each year"),
+  "The interactive line graph to the right depicts the trend of American average
+  sleep hours in various age group. From observing data from various years we
+  can also analyze whether there are any visually notable differences between
+  the years in terms of how much sleep Americans got and each age groups.The
+  default is set to compare these trends between all age groups.
+  Selecting an age group in dropdown menu will visualize the line graph of
+  selected age group. Hover to see the exact average amount of sleep hours
+  in each year"),
   p(
     "You can see the Americans' sleep hours trend for a specific age group
     by selecting an age group category below."
@@ -148,7 +151,7 @@ page_4_side <- sidebarPanel(
     because it effectively shows a visual comparison between the different
     amount of hours spent sleeping on average per day. The barplot expresses
     the comparison of these different amounts of hours spent sleeping in order
-    to demonstrate how many horus spent sleeping is most common, least common,
+    to demonstrate how many hours spent sleeping is most common, least common,
     or in between. Hover to see the exact amount of people fall in each
     category."),
   p(
