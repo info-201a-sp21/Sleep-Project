@@ -172,7 +172,7 @@ page_4_main <- mainPanel(
   ))
 
 page_4 <- tabPanel(
-  "Matt's Page",
+  "Yearly Sleep Patterns",
   sidebarLayout(
     sidebarPanel =  page_4_side,
     mainPanel = page_4_main)
