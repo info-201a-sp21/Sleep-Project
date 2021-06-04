@@ -41,6 +41,25 @@ server <- function(input, output) {
     return(get_bar_chart_and_table(american_time_use_survey_df, 2))
 
   })
+  
+  filename1 <- normalizePath(file.path("images", "hourssleepinggraph.png"))
+  filename2 <- normalizePath(file.path("images", "scatterplot1.png"))
+  filename3 <- normalizePath(file.path("images", "linegraph.png"))
+  
+  output$barplot_img <- renderImage({
+    list(src = filename1,
+         contentType = "image/png")
+  }, deleteFile = FALSE)
+  
+  output$scatter_plot_img <- renderImage({
+    list(src = filename2,
+         contentType = "image/png")
+  }, deleteFile = FALSE)
+  
+  output$linegraph_img <- renderImage({
+    list(src = filename3,
+         contentType = "image/png")
+  }, deleteFile = FALSE)
 
 }
 
