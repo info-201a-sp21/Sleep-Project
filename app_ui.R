@@ -204,8 +204,8 @@ conclusion_page <- tabPanel(
       relationship between Americans and the average
       number of hours they are sleeping."),
   tags$img(
-    id = "/images/americanssleeping.png", src =
-      "/hourssleepinggraph",
+    id = "americanssleeping_img", src =
+      "images/hourssleepinggraph",
     width = "500px", height = "300px"
   ),
   h2("Takeaway 1: Respondents were,
@@ -235,8 +235,8 @@ conclusion_page <- tabPanel(
     blue-light exposure or smartphone addiction."
   ),
   tags$img(
-    id = "/images/scatterplot1.png", src =
-      "/",
+    id = "scatterplot_img", src =
+      "images/scatterplot1.png",
     width = "500px", height = "300px"
   ),
   h2("Takeaway 2: Average Hours of Sleep Changed Depending on the Type of Day"),
@@ -262,8 +262,8 @@ conclusion_page <- tabPanel(
     which account for the longer hours slept during the weekends."
   ),
   tags$img(
-    id = "/images/linegraph.png", src =
-      "/",
+    id = "linegraph_img", src =
+      "images/linegraph.png",
     width = "500px", height = "300px"
   ),
   h2("Takeaway 3: 15-24 Age Group's Average Sleep Hours Increased the Most"),
