@@ -20,7 +20,7 @@ get_point_plot <- function(dataset, dataCategory) {
     )
 
   plot_with_points1 <- plot1 +
-    geom_jitter(shape = 16) +
+    geom_jitter(shape = 16, color = "#406E8E") +
     stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color =
                  "red")
   interactive_point1 <- ggplotly(plot_with_points1)
@@ -42,7 +42,7 @@ get_point_plot <- function(dataset, dataCategory) {
     )
     
     plot_with_points2 <- plot2 +
-      geom_jitter(shape = 16) +
+      geom_jitter(shape = 16, color = "#23395B") +
       stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color =
                      "red")
     interactive_point2 <- ggplotly(plot_with_points2)
@@ -64,7 +64,7 @@ get_point_plot <- function(dataset, dataCategory) {
       )
     
     plot_with_points3 <- plot3 +
-      geom_jitter(shape = 16) +
+      geom_jitter(shape = 16, color = "#4174BF") +
       stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color =
                      "red")
     interactive_point3 <- ggplotly(plot_with_points3)
@@ -85,7 +85,7 @@ get_point_plot <- function(dataset, dataCategory) {
     )
   
   plot_with_points4 <- plot4 +
-    geom_jitter(shape = 16) +
+    geom_jitter(shape = 16, color = "#8EA8C3") +
     stat_summary(fun = mean, geom = "point", shape = 16, size = 4, color =
                    "red")
   interactive_point4 <- ggplotly(plot_with_points4)
