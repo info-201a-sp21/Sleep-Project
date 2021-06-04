@@ -17,20 +17,21 @@ intro_page <- tabPanel(
   ),
   h1("Introduction"),
   p(
-    " The balance between sleep and school or work can becomes extremely disrupted.
-      Sleep is highly needed but often sacrificed in order to
-      meet deadlines and complete work. Our project seeks to understand if this balance
-      between sleep and school or work is highly imbalanced or if people are generally able
-      to achieve a healthy amount of sleep."
+    " The balance between sleep and school or work can becomes extremely
+    disrupted. Sleep is highly needed but often sacrificed in order to
+    meet deadlines and complete work. Our project seeks to understand if
+    this balance between sleep and school or work is highly imbalanced or
+    if people are generally able to achieve a healthy amount of sleep."
   ),
   h3("Our Data Source"),
   p(
     "In order to answer these questions about the relationship between Americans
-      and sleep, we used data collected from 2003 to 2017 by American Time Use Survey
-      from the Bureau of Labor Statistics. The survey gathered data from a
-      random sample of Americans of both sexes, ranging from ages 15 to 60 years and
-      over. Namely, the dataset provides information about the type of day respondents reported
-      sleeping, the average hours per day spent sleeping, the sex of the respondent,
+      and sleep, we used data collected from 2003 to 2017 by American Time Use
+      Survey from the Bureau of Labor Statistics. The survey gathered data from
+      a random sample of Americans of both sexes, ranging from ages 15 to 60
+      years and over. Namely, the dataset provides information about the type
+      of day respondents reported sleeping, the average hours per day spent
+      sleeping, the sex of the respondent,
       their age range, the year the data was collected.
     "
   ),
@@ -39,15 +40,17 @@ intro_page <- tabPanel(
     tags$li("What are the differences in hours slept between days in general,
       weekends and holidays, and nonholiday weekends?"),
     p("We derived this information from the columns in the dataset that
-       pertained to types of days and average hours slept per day to answer this question."),
-    tags$li("What are the average number of hours slept by each age group over the
-      period of 2003-2017?"),
+      pertained to types of days and average hours slept per day
+      to answer this question."),
+    tags$li("What are the average number of hours slept by each
+      age group over the period of 2003-2017?"),
     p("We used the average number of hours slept per day and the age groups to
       answer this question."),
-    tags$li("Generally, across sexes and age groups, what are the average hours of sleep
+    tags$li("Generally, across sexes and age groups,
+      what are the average hours of sleep
       Americans getting from the years 2003 to 2017?"),
-    p("We used data from the sexes, age groups, and average hours slept by per day from
-      our entire dataset to answer this question.")
+    p("We used data from the sexes, age groups, and average
+      hours slept by per day from our entire dataset to answer this question.")
   )
 )
 
@@ -99,14 +102,14 @@ page_2 <- tabPanel(
 page_3_side <- sidebarPanel(
   style = "background-color: #81C4EF",
   p(
-    "The interactive line graph to the right depicts the trend of American average
-  sleep hours in various age group. From observing data from various years we
-  can also analyze whether there are any visually notable differences between
-  the years in terms of how much sleep Americans got and each age groups.The
-  default is set to compare these trends between all age groups.
-  Selecting an age group in dropdown menu will visualize the line graph of
-  selected age group. Hover to see the exact average amount of sleep hours
-  in each year"
+    "The interactive line graph to the right depicts the trend of American
+    average sleep hours in various age group. From observing data from various
+    years we can also analyze whether there are any visually notable differences
+    between the years in terms of how much sleep Americans got and each age
+    groups.The default is set to compare these trends between all age groups.
+    Selecting an age group in dropdown menu will visualize the line graph of
+    selected age group. Hover to see the exact average amount of sleep hours
+    in each year"
   ),
   p(
     "You can see the Americans' sleep hours trend for a specific age group
@@ -200,6 +203,11 @@ conclusion_page <- tabPanel(
       three major takeaways that address questions related to exploring the
       relationship between Americans and the average
       number of hours they are sleeping."),
+  tags$img(
+    id = "/images/americanssleeping.png", src =
+      "/hourssleepinggraph",
+    width = "500px", height = "300px"
+  ),
   h2("Takeaway 1: Respondents were,
        on average, able to sleep a healthy amount"),
   h3("Question: What was the most common number of hours
@@ -226,6 +234,11 @@ conclusion_page <- tabPanel(
     average hours of sleep of Americans lessened from prevalent
     blue-light exposure or smartphone addiction."
   ),
+  tags$img(
+    id = "/images/scatterplot1.png", src =
+      "/",
+    width = "500px", height = "300px"
+  ),
   h2("Takeaway 2: Average Hours of Sleep Changed Depending on the Type of Day"),
   h3("Question: Did the type of day affect the average number of hours slept?"),
   p(
@@ -248,10 +261,14 @@ conclusion_page <- tabPanel(
     Americans feel as though they do not get enough sleep during the weekdays
     which account for the longer hours slept during the weekends."
   ),
+  tags$img(
+    id = "/images/linegraph.png", src =
+      "/",
+    width = "500px", height = "300px"
+  ),
   h2("Takeaway 3: 15-24 Age Group's Average Sleep Hours Increased the Most"),
   h3("Question: What are the different sleep patterns of
-    the different age groups surveyed?"
-     ),
+    the different age groups surveyed?"),
   p(
     "From our Trend of Average Sleep Hours In Each Age Group graph, we gained
     insight into the sleeping patterns of different age groups. It revealed that
@@ -270,7 +287,9 @@ conclusion_page <- tabPanel(
     life events could include entering college, graduating college, or entering
     the workforce. This age group's sleep patterns act like an outlier in the
     dataset, being significantly distanced on the graph from the rest of the age
-    groups graphed.")
+    groups graphed. Thus we see that age groups likely to be in the workforce
+    experience very different sleep patterns from the youngest age group
+    which is most likely to be impacted by school.")
 )
 
 
