@@ -1,6 +1,7 @@
 library(plotly)
 library(shiny)
 library(dplyr)
+library(shinyWidgets)
 
 setBackgroundColor(
   color = # 255377
@@ -13,8 +14,7 @@ intro_page <- tabPanel(
   tags$img(
     id = "image_sleeping", src = paste("https://forum.facmedicine.com",
       "/data/MetaMirrorCache/db5d4dcbb12c091cf69728570a385b92.jpg",
-      sep = ""
-    ),
+      sep = ""),
     width = "500px", height = "300px"
   ),
   h1("Introduction"),
