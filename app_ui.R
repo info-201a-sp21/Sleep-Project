@@ -1,6 +1,7 @@
 library(plotly)
 library(shiny)
 library("shinyWidgets")
+library(dplyr)
 
 setBackgroundColor(
   color = # 255377
@@ -204,8 +205,9 @@ conclusion_page <- tabPanel(
       relationship between Americans and the average
       number of hours they are sleeping."),
   tags$img(
-    id = "americanssleeping_img", src =
-      "images/hourssleepinggraph",
+    #id = "americanssleeping_img", 
+    src =
+      "images/hourssleepinggraph.png",
     width = "500px", height = "300px"
   ),
   h2("Takeaway 1: Respondents were,
@@ -235,7 +237,8 @@ conclusion_page <- tabPanel(
     blue-light exposure or smartphone addiction."
   ),
   tags$img(
-    id = "scatterplot_img", src =
+    #id = "scatterplot_img",
+    src =
       "images/scatterplot1.png",
     width = "500px", height = "300px"
   ),
@@ -262,7 +265,8 @@ conclusion_page <- tabPanel(
     which account for the longer hours slept during the weekends."
   ),
   tags$img(
-    id = "linegraph_img", src =
+    #id = "linegraph_img",
+    src =
       "images/linegraph.png",
     width = "500px", height = "300px"
   ),
