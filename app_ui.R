@@ -205,7 +205,7 @@ conclusion_page <- tabPanel(
   h3("Question: What was the most common number of hours
      (rounded to the nearest hour) that Americans slept from 2003-2017?"),
   p(
-    "Using the How Many Hours Americans Spend Sleeping on Average?,
+    "Using the How Many Hours Americans Spend Sleeping on Average? graph,
     our research uncovered common hours Americans spent sleeping.
     We found that 8 hours and 9 hours were the most common amount of
     hours spent sleeping on average per day with 7 hours and 10 hours being
@@ -220,18 +220,20 @@ conclusion_page <- tabPanel(
     sleep a healthy amount."
   ),
   p(
-  "Broader Implications: With the prevalence of social media addiction
-  and increasing technological usage from the increasing release
-  of technology, it may be of value to further investigate if the
-  average hours of sleep of Americans lessened from prevalent
-  blue-light exposure or smartphone addiction."
+    "Broader Implications: With the prevalence of social media addiction
+    and increasing technological usage from the increasing release
+    of technology, it may be of value to further investigate if the
+    average hours of sleep of Americans lessened from prevalent
+    blue-light exposure or smartphone addiction."
   ),
   h2("Takeaway 2: Average Hours of Sleep Changed Depending on the Type of Day"),
   h3("Question: Did the type of day affect the average number of hours slept?"),
   p(
     "From our categorical scatterplot Types of Days vs.
     Average Hours Slept per Day, our data revealed large differences in time
-    spent sleeping across three different categories of days. The visualization
+    spent sleeping across three different categories of days. We
+    found that the type of day impacted the average number
+    of hours slep. The visualization
     reveals that the average sleep for weekends was 9.33 hours, 8.40 hours for
     weekdays, and 8.68 hours across all days. These results tell us that people
     change their sleeping patterns by nearly an hour from weekday to weekend,
@@ -248,7 +250,7 @@ conclusion_page <- tabPanel(
   ),
   h2("Takeaway 3: 15-24 Age Group's Average Sleep Hours Increased the Most"),
   h3("Question: What are the different sleep patterns of
-  the different age groups surveyed?"
+    the different age groups surveyed?"
      ),
   p(
     "From our Trend of Average Sleep Hours In Each Age Group graph, we gained
@@ -262,11 +264,13 @@ conclusion_page <- tabPanel(
     that they are having."
   ),
   p("Broader Implications: Perhaps there are issues that the 15-24 year old
-  age groups faces that are uniquely affecting their sleep pattern. Significant
-  life events could include entering college, graduating college, or entering
-  the workforce. This age group's sleep patterns act like an outlier in the
-  dataset, being significantly distanced on the graph from the rest of the age
-  groups graphed.")
+    age groups faces that are uniquely affecting their sleep pattern that
+    would explain the distinct 15-24 year old age group's sleep pattern
+    that we found from the data. Significant
+    life events could include entering college, graduating college, or entering
+    the workforce. This age group's sleep patterns act like an outlier in the
+    dataset, being significantly distanced on the graph from the rest of the age
+    groups graphed.")
 )
 
 
